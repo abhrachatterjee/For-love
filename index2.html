@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#21172b">
+<title>For Titli 🦋</title>
+<style>
+:root{--ink:#33263b;--paper:#fffaf6;--rose:#d98e9a;--plum:#5b3d62}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:#21172b;min-height:100vh}
+.scene{display:none;min-height:100svh;padding:28px 20px 36px;align-items:center;justify-content:center;flex-direction:column;text-align:center;overflow:hidden;position:relative}
+.scene.active{display:flex;animation:fade .8s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+#intro{background:linear-gradient(180deg,#f7c9a9 0%,#e99d9a 48%,#76608c 100%)}
+#morning{background:linear-gradient(180deg,#f6d9b6,#f5b9b5 60%,#e9a5b6)}
+#afternoon{background:linear-gradient(180deg,#a9d8ee,#f8e0b8 75%,#eab4ae)}
+#evening{background:linear-gradient(180deg,#f0a18b,#b8799e 55%,#5b547e)}
+#night{background:linear-gradient(180deg,#171d3d,#43385d 65%,#76516e);color:#fff5f6}
+#letter{background:linear-gradient(135deg,#e6c5d2,#f8e6d7);padding-top:38px}
+#final{background:linear-gradient(180deg,#2a2148,#784c70);color:#fff6fa}
+.eyebrow{font:600 11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;opacity:.8}
+h1{font-size:clamp(34px,9vw,56px);line-height:1.08;margin:16px 0}
+h2{font-size:clamp(27px,7vw,40px);margin:12px 0}
+p{font-size:18px;line-height:1.55;max-width:480px}
+button,.btn{border:0;border-radius:999px;padding:14px 22px;margin:8px 4px;background:#fff8f4;color:#57384f;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;box-shadow:0 7px 22px #39203922}
+button.secondary{background:#ffffff26;color:inherit;border:1px solid #ffffff70;box-shadow:none}
+.small{font:13px Arial,sans-serif;opacity:.8;max-width:340px}
+.sun{width:110px;height:110px;border-radius:50%;background:#fff0b7;box-shadow:0 0 70px #fff3bf99;margin:16px auto 22px}
+.butterfly{font-size:42px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px) rotate(4deg)}}
+.chatbox{width:min(100%,430px);background:#fffaf4eF;border-radius:24px;padding:20px 14px 14px;color:#33263b;box-shadow:0 18px 55px #24172d2b}
+.chathead{font:600 13px Arial,sans-serif;border-bottom:1px solid #eadde0;padding:0 4px 12px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.avatar{width:34px;height:34px;border-radius:50%;background:#f1c7d2;display:grid;place-items:center;font-size:18px}
+.messages{display:flex;flex-direction:column;gap:9px;text-align:left}
+.msg{max-width:88%;padding:10px 13px;border-radius:17px;font:15px/1.4 Arial,sans-serif;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.msg.titli{align-self:flex-start;background:#eee6ed;border-bottom-left-radius:5px}
+.msg.abhra{align-self:flex-end;background:#f5cfda;border-bottom-right-radius:5px}
+.sender{font-size:10px;letter-spacing:.5px;opacity:.65;display:block;margin-bottom:3px}
+.chatcontrols{margin-top:16px}
+.chatcontrols button{margin:4px}
+.letterpaper{width:min(100%,500px);text-align:left;background:#fffaf2;padding:28px 24px;border-radius:5px;box-shadow:0 14px 40px #5d355322;transform:rotate(-.4deg)}
+.letterpaper p{font-size:18px}
+.letterpaper .sign{font-style:italic;text-align:right}
+.stars{position:absolute;inset:0;pointer-events:none;opacity:.6;background-image:radial-gradient(2px 2px at 20% 18%,white 50%,transparent 55%),radial-gradient(1px 1px at 72% 22%,white 50%,transparent 55%),radial-gradient(2px 2px at 88% 43%,white 50%,transparent 55%),radial-gradient(1px 1px at 34% 68%,white 50%,transparent 55%),radial-gradient(2px 2px at 60% 83%,white 50%,transparent 55%)}
+#musicToggle{position:fixed;z-index:5;top:12px;right:12px;border-radius:999px;padding:10px 13px;background:#fff9;color:#372542;box-shadow:none;font:12px Arial,sans-serif}
+@media(min-width:600px){.scene{padding:40px}.chatbox{padding:22px 20px 18px}.msg{font-size:16px}}
+</style>
+</head>
+<body>
+<button id="musicToggle" aria-label="Toggle soft piano">♫ Piano: off</button>
+
+<section class="scene active" id="intro">
+  <div class="sun"></div><div class="butterfly">🦋</div>
+  <div class="eyebrow">A little journey, just for you</div>
+  <h1>Good morning,<br>my Titli.</h1>
+  <p>Some stories don't happen all at once.<br>They become special, one little moment at a time.</p>
+  <p><strong>Babe, you are my today<br>and all my tomorrows.</strong></p>
+  <button onclick="go('morning')">Let's begin ☀️</button>
+  <div class="small">Turn the sound on if you'd like a little soft piano in the background.</div>
+</section>
+
+<section class="scene" id="morning">
+  <div class="eyebrow">Morning · the first hello</div><h2>It started so simply…</h2>
+  <div class="chatbox">
+    <div class="chathead"><div class="avatar">🦋</div><div><strong>Titli & Abhra</strong><br><span style="opacity:.6">a little conversation</span></div></div>
+    <div class="messages">
+      <div class="msg titli"><span class="sender">TITLI</span>Hlooo 😊</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Hellooo 😄 Ki korcho?</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Emni… tumi?</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Tomar sathe kotha bolchi, so not a bad morning at all. 😂</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Achha, tomar favourite food ki? Ar kon jinis ekdom pochondo na?</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Momo bhalo lage 😋 Cats… not so much 😂</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Noted. And what makes you happy on a bad day?</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Depends on the day… maybe family, peace, good food.</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Little by little, I was getting to know you. ❤️</div>
+    </div>
+  </div>
+  <p class="small">The little questions that slowly made someone feel less like a stranger.</p>
+  <button onclick="go('afternoon')">Later that day →</button>
+</section>
+
+<section class="scene" id="afternoon">
+  <div class="eyebrow">Afternoon · the confession</div><h2>Then came the truth…</h2>
+  <div class="chatbox">
+    <div class="chathead"><div class="avatar">💬</div><div><strong>Titli & Abhra</strong><br><span style="opacity:.6">one honest conversation</span></div></div>
+    <div class="messages">
+      <div class="msg titli"><span class="sender">TITLI</span>Achha, tumi NEET niye eto kichhu jiggesh koro keno? 👀</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Because I know how much it matters… and I wanted to know how your journey was going.</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Hmm. Ar kichhu reason ache? 😂</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Okay, confession time… you were my crush. 🙈</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Really? 😳</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>Haan. At first I was just curious about you. Then I started looking forward to talking to you.</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>And somewhere along the way, you became someone genuinely special to me. ❤️</div>
+    </div>
+  </div>
+  <p class="small">From a little curiosity to a feeling that deserved to be said out loud.</p>
+  <button onclick="go('evening')">And then… evening 🌇</button>
+</section>
+
+<section class="scene" id="evening">
+  <div class="eyebrow">Evening · a wish for her future</div><h2>Your hard work,<br>your moment.</h2>
+  <div class="chatbox">
+    <div class="chathead"><div class="avatar">✨</div><div><strong>Titli & Abhra</strong><br><span style="opacity:.6">a moment worth celebrating</span></div></div>
+    <div class="messages">
+      <div class="msg abhra"><span class="sender">ABHRA</span>Titliii! You did it!! 🥹❤️ Congratulations on your NEET success!</div>
+      <div class="msg titli"><span class="sender">TITLI</span>Thank youuu 🥹❤️</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>I hope you know how proud you should be of yourself.</div>
+      <div class="msg titli"><span class="sender">TITLI</span>That means a lot. Thank you for cheering for me. 🥹</div>
+      <div class="msg abhra"><span class="sender">ABHRA</span>And this is only the beginning. I want to see you win, grow, and achieve every dream you have… all my life. ❤️</div>
+    </div>
+  </div>
+  <p class="small">Not just wishing you success once—but wishing you a lifetime of reasons to smile.</p>
+  <button onclick="go('night')">As the day ends… 🌙</button>
+</section>
+
+<section class="scene" id="night">
+  <div class="stars"></div><div class="butterfly">🦋</div>
+  <div class="eyebrow">Night · what I really mean</div>
+  <h2>One day,<br>one journey.</h2>
+  <p>Morning was the hello.<br>Afternoon was the confession.<br>Evening was cheering for your dreams.<br>And night is me hoping I get to keep cheering for you.</p>
+  <p><strong>I don't just want to see you succeed.<br>I want to see you happy, always.</strong></p>
+  <button onclick="go('letter')">One last thing… 💌</button>
+</section>
+
+<section class="scene" id="letter">
+  <div class="eyebrow">A little letter for Titli</div>
+  <div class="letterpaper">
+    <h2>Dear Titli, 🦋</h2>
+    <p>If I could keep one thing from this whole day, it wouldn't be a particular message. It would be the feeling of watching our story move from a simple hello to all the things I wanted to tell you.</p>
+    <p>I hope life gives you a thousand reasons to be proud of yourself. I hope your dreams find you ready, your hard days become easier, and your happiest moments last a little longer.</p>
+    <p>And whenever you win at something—big or small—I hope you remember there's someone who'll be genuinely happy to see you shine.</p>
+    <p>Keep growing. Keep dreaming. Keep being you.</p>
+    <p class="sign">With all my affection,<br><strong>Abhra ❤️</strong></p>
+  </div>
+  <button onclick="go('final')">For the days ahead ✨</button>
+</section>
+
+<section class="scene" id="final">
+  <div class="butterfly">🦋</div><div class="eyebrow">The story doesn't end here</div>
+  <h1>For you,<br>my Titli.</h1>
+  <p>May every tomorrow bring you closer to the life you've dreamed of.</p>
+  <p><strong>And may I always get to cheer you on.</strong> ❤️</p>
+  <a class="btn" href="https://open.spotify.com/playlist/7vK450IRVPJVrmrcWEUg9q?si=q3mr6JDDThOcCYP77RDH2g&utm_source=copy-link&pi=b9q77OP7SQerN" target="_blank" rel="noopener">Our little playlist 🎧</a>
+  <button class="secondary" onclick="go('intro')">Read it again ↺</button>
+  <div class="small">Made with love, for Titli.</div>
+</section>
+
+<script>
+function go(id){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+// Original, simple synthesized piano-like notes; not a recording or melody from any existing song.
+let audioCtx=null, timer=null, playing=false, noteIndex=0;
+const toggle=document.getElementById('musicToggle');
+const notes=[261.63,329.63,392.00,329.63,293.66,349.23,440.00,349.23,261.63,329.63,392.00,493.88,440.00,392.00,349.23,293.66];
+function playNote(freq, when, duration){
+  const osc=audioCtx.createOscillator(), gain=audioCtx.createGain();
+  const mellow=audioCtx.createBiquadFilter(); mellow.type='lowpass'; mellow.frequency.value=1500;
+  osc.type='sine'; osc.frequency.setValueAtTime(freq,when);
+  gain.gain.setValueAtTime(0.0001,when); gain.gain.exponentialRampToValueAtTime(0.075,when+0.025);
+  gain.gain.exponentialRampToValueAtTime(0.0001,when+duration);
+  osc.connect(mellow);mellow.connect(gain);gain.connect(audioCtx.destination);
+  osc.start(when);osc.stop(when+duration+0.03);
+}
+function startMusic(){
+  if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  audioCtx.resume(); playing=true; toggle.textContent='♫ Piano: on';
+  if(timer)clearInterval(timer);
+  timer=setInterval(()=>{if(!playing)return;const now=audioCtx.currentTime;playNote(notes[noteIndex%notes.length],now,1.0);if(noteIndex%4===0)playNote(notes[(noteIndex+2)%notes.length]/2,now,1.25);noteIndex++},650);
+}
+function stopMusic(){playing=false;if(timer)clearInterval(timer);timer=null;toggle.textContent='♫ Piano: off'}
+toggle.addEventListener('click',()=>playing?stopMusic():startMusic());
+</script>
+</body>
+</html>
